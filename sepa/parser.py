@@ -57,6 +57,10 @@ def parse_tree(structure, tag):
             else:
                 data[substructure] = child.text
 
+    if tag.tag == 'Amt':
+        return {'amount': tag.text,
+                'currency': tag.attrib['Ccy']}
+
     return data
 
 def parse(structure, tree):
